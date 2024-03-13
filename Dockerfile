@@ -1,10 +1,12 @@
+FROM ubuntu:latest
 
-#docker run -dit -p 80:80 -v /home/kduncan/demo_folder:/usr/local/apache2/htdocs/ httpd:2.4
+# Install Apache HTTP Server
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    rm -rf /var/lib/apt/lists/*
 
-FROM httpd:2.4
+# Copy your HTML files to the Apache document root directory
+COPY html/ /var/www/html/
 
-#RUN apt install -y python3
-
-COPY html/ /usr/local/apache2/htdocs/
-
+# Expose port 80
 EXPOSE 80
