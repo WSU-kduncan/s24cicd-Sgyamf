@@ -72,4 +72,5 @@ DOCKER_PASSWORD: DockerHub password.
 Image name and tag: Specifies the Docker image name and tag.
 ## DockerHub Repository Link
 Your DockerHub Repository
+
 This documentation now includes additional details such as the process to create a public repo in DockerHub, authentication with DockerHub via CLI, pushing container images to DockerHub without GitHub Actions, configuring GitHub Secrets, and the behavior of the GitHub workflow.
