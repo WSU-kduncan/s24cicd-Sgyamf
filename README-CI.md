@@ -1,4 +1,4 @@
-# CI Project Overview
+## CI Project Overview
 
 This project aims to create a Docker image for serving a website using Apache web server. The Docker image allows for easy deployment of the website in a containerized environment, providing consistency across different platforms and environments.
 
@@ -28,16 +28,3 @@ To build the Docker image, execute the following command in the terminal:
 
 ```bash
 docker build -t akuawebserver .
-
-## Run Container
-Once the Docker image is built successfully, you can run the container using the following command:
-
-bash
-docker run -d -p 80:80 akuawebserver
-
-## How to View the Project Running in the Container
-Open a web browser and navigate to http://localhost to access the website served by the Docker container.
-
-
-
-This structure provides a clear overview of the project, instructions for running it 
