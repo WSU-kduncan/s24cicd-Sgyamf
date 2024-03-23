@@ -49,6 +49,8 @@ Open your terminal.
 Run the following command and enter your DockerHub username and password when prompted:
 
 docker login
+
+
 ## How to Push Container Image to Dockerhub (Without GitHub Actions)
 After building the Docker image locally, you can push it to DockerHub using the following command:
 
@@ -62,7 +64,7 @@ Click on "Secrets" in the left sidebar.
 Click on the "New repository secret" button.
 Enter the name and value of the secret and click "Add secret".
 
-##Behavior of GitHub Workflow
+## Behavior of GitHub Workflow
 The GitHub Actions workflow is triggered on every push to the main branch.
 Custom variables in the workflow include:
 DOCKER_USERNAME: DockerHub username.
