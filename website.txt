@@ -1,0 +1,10 @@
+website/
+├── assets/
+│   ├── dist/
+│   │   ├── css/
+│   │   │   └── bootstrap.min.css
+│   │   └── js/
+│   │       └── bootstrap.bundle.min.js
+├── headers.css
+├── email.html
+└── index.html
