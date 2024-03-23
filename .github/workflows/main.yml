@@ -20,4 +20,5 @@ jobs:
         run: docker build -t your-dockerhub-username/your-repo-name:latest .
 
       - name: Push Docker image to DockerHub
-        run: docker push your-dockerhub-username/your-repo-name:latest
+        run: docker push sgyamf/s24cicd-Sgyamf:latest
+
