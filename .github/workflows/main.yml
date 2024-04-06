@@ -2,10 +2,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches:
-      - main
     tags:
-      - 'v*.*'
+      - 'v*'  # Trigger workflow on tag push that starts with 'v'
 
 jobs:
   build-and-push:
@@ -16,15 +14,21 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to DockerHub
-        if: github.event_name != 'pull_request'
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Extract tag version
+        id: extract_tag
+        run: |
+          echo "Tag from GitHub ref: ${{ github.ref }}"
+          TAG=$(echo "${{ github.ref }}" | sed 's/refs\/tags\/v//')
+          echo "::set-output name=tag::$TAG"
 
       - name: Build Docker image
         run: |
-          docker build -t sgyamf/s24cicd-Sgyamf:latest .
-          docker build -t sgyamf/s24cicd-Sgyamf:${{ github.ref }} .
+          docker build -t sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }} .
+          docker build -t sgyamf/sgyamf:latest .
 
       - name: Push Docker image to DockerHub
         run: |
-          docker push sgyamf/s24cicd-Sgyamf:latest
-          docker push sgyamf/s24cicd-Sgyamf:${{ github.ref }}
+          docker push sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}
+          docker push sgyamf/sgyamf:latest
