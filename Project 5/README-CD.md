@@ -22,3 +22,13 @@ git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
 
 
+
+Deleting a Tag:
+To delete a Git tag locally and on the remote repository, follow these steps:
+
+# Delete a local tag
+git tag -d <tag_name>
+
+# Delete the tag on the remote repository
+git push --delete origin <tag_name>
+ 
