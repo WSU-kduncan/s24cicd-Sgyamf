@@ -105,19 +105,19 @@ jobs:
        - The image tagged as `latest`.
 
 
-## Docker Image Push Documentation
+Docker Image Push Documentation
+Step 1: Tag Docker Images Locally
+Tagging Docker images locally allows us to assign specific names (tags) to our images before pushing them to Docker Hub. This helps organize and identify our images more effectively.
 
-### Step 1: Tag Docker Images Locally
+Step 2: Log in to Docker Hub
+Before pushing Docker images to Docker Hub, we need to authenticate by logging in with our Docker Hub credentials.
 
-```bash
-# Tag the akuawebserver:latest image
-docker tag akuawebserver:latest sgyamf/akuawebserver:latest
+Step 3: Push Docker Images to Docker Hub
+After logging in, we use the docker push command to upload our tagged Docker images to Docker Hub. This step makes our images publicly accessible and usable by others.
 
-# Tag the sgyamf/sgyamf:v1.0.0 image
-docker tag sgyamf/sgyamf:v1.0.0 sgyamf/sgyamf:v1.0.0
+Step 4: Verify Pushed Images on Docker Hub
+Once the images are pushed, we can verify their presence on Docker Hub by navigating to the respective repositories. This ensures that our images are successfully uploaded and available for use.  
 
-# Tag the webserver:latest image
-docker tag webserver:latest sgyamf/webserver:latest
 
 
 
