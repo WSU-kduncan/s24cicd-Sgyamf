@@ -17,11 +17,11 @@ The workflow is configured to generate tags based on these version patterns when
 
 To generate a tag in Git/GitHub for triggering the workflow, use the following commands:
 
-```bash
+
 git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
 
-
+---
 
 Deleting a Tag:
 To delete a Git tag locally and on the remote repository, follow these steps:
