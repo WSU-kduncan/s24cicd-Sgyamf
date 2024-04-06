@@ -1,4 +1,4 @@
-m# Project 5: Milestone Dates & EC
+## Project 5: Milestone Dates & EC
 
 ## Project Overview
 
@@ -17,7 +17,6 @@ The workflow is configured to generate tags based on these version patterns when
 
 To generate a tag in Git/GitHub for triggering the workflow, use the following commands:
 
----
 git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
 
@@ -29,10 +28,12 @@ git tag -d <git tag -d v1.0.0>
 
 # Delete the tag on the remote repository
 git push --delete origin <git tag -d v1.0.0>
- ---
+
 
 ### Updated main.yml File:
+
 Here is the updated main.yml file that automates the build and push of Docker images to DockerHub based on Git tag versions and latest:
+
 
 
 name: Build and Push Docker Image
@@ -69,4 +70,4 @@ jobs:
         run: |
           docker push sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}
           docker push sgyamf/sgyamf:latest
-         
+         ---
