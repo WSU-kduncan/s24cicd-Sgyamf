@@ -123,4 +123,6 @@ Once the images are pushed, we can verify their presence on Docker Hub by naviga
 ![image](https://github.com/WSU-kduncan/s24cicd-Sgyamf/assets/143733797/faf59ce1-91f8-4d59-990f-896c152520b1)
 
 
+![image](https://github.com/WSU-kduncan/s24cicd-Sgyamf/assets/143733797/dcc24287-cb1d-4126-ac85-3fa5687c5879)
+
 
