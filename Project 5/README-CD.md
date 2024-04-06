@@ -30,12 +30,7 @@ git tag -d <git tag -d v1.0.0>
 git push --delete origin <git tag -d v1.0.0>
 
 
-### Updated main.yml File:
-
-Here is the updated main.yml file that automates the build and push of Docker images to DockerHub based on Git tag versions and latest:
-
-
-
+## Updated main.yml File:
 name: Build and Push Docker Image
 
 on:
