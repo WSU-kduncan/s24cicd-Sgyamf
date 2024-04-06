@@ -26,7 +26,7 @@ git push origin --tags
 
 To delete a Git tag locally and on the remote repository, follow these steps:
 
-\```bash
+
 # Delete a local tag
 git tag -d <tag_name>
 
