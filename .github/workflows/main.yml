@@ -2,6 +2,8 @@ name: Build and Push Docker Image
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'  # Trigger workflow on tag push that starts with 'v'
 
@@ -25,10 +27,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }} .
-          docker build -t sgyamf/sgyamf:latest .
+          docker build -t sgyamf/s24cicd-Sgyamf:${{ steps.extract_tag.outputs.tag }} .
+          docker build -t sgyamf/s24cicd-Sgyamf:latest .
 
       - name: Push Docker image to DockerHub
         run: |
-          docker push sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}
-          docker push sgyamf/sgyamf:latest
+          docker push sgyamf/s24cicd-Sgyamf:${{ steps.extract_tag.outputs.tag }}
+          docker push sgyamf/s24cicd-Sgyamf:latest
