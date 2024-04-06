@@ -118,36 +118,6 @@ docker tag sgyamf/sgyamf:v1.0.0 sgyamf/sgyamf:v1.0.0
 
 # Tag the webserver:latest image
 docker tag webserver:latest sgyamf/webserver:latest
-# Step 2: Log in to Docker Hub
-docker login
-# Enter your Docker Hub username and password when prompted
-#Step 3: Push Docker Images to Docker Hub
-# Push the sgyamf/akuawebserver:latest image
-docker push sgyamf/akuawebserver:latest
-
-# Push the sgyamf/sgyamf:v1.0.0 image
-docker push sgyamf/sgyamf:v1.0.0
-
-# Push the sgyamf/webserver:latest image
-docker push sgyamf/webserver:latest
-Step 4: Verify Pushed Images on Docker Hub
-Repository: sgyamf on Docker Hub
-sgyamf/akuawebserver
-Description: Contains the akuawebserver:latest image.
-Last Pushed: 2 minutes ago
-Tags: latest
-sgyamf/sgyamf
-Description: Contains the sgyamf: v1.0.0 image.
-Last Pushed: 4 minutes ago
-Tags: v1.0.0
-sgyamf/webserver
-Description: Contains the webserver:latest image.
-Last Pushed: 1 minute ago
-Tags: latest
 
 
-### Overview of Pushed Images on Docker Hub
 
-Navigate to the respective repositories on Docker Hub using the provided links to verify the pushed images and tags.
-
-If you have any questions or need further assistance, feel free to ask!
