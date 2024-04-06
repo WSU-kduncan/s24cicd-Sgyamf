@@ -21,14 +21,3 @@ To generate a tag in Git/GitHub for triggering the workflow, use the following c
 git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
 
-## Behavior of GitHub Workflow
-The GitHub Actions workflow (main.yml) is configured to execute when the following events occur:
-
-Push to the main branch.
-Push of tags that match the pattern v*.*.
-The workflow performs the following actions:
-
-Checks out the repository code.
-Gathers metadata about the image using docker/metadata-action.
-Logs in to DockerHub using Docker credentials.
-Builds and pushes the Docker image based on the specified tags.
