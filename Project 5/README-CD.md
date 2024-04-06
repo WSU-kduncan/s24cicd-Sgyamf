@@ -118,6 +118,9 @@ After logging in, we use the docker push command to upload our tagged Docker ima
 Step 4: Verify Pushed Images on Docker Hub
 Once the images are pushed, we can verify their presence on Docker Hub by navigating to the respective repositories. This ensures that our images are successfully uploaded and available for use.  
 
+##Proof
+
+![image](https://github.com/WSU-kduncan/s24cicd-Sgyamf/assets/143733797/faf59ce1-91f8-4d59-990f-896c152520b1)
 
 
 
