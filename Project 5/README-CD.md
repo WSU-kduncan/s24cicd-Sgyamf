@@ -1,28 +1,44 @@
-Project 5: Milestone Dates & EC
-Project Overview
-This project involves setting up a GitHub Actions workflow to automate the build and push of Docker images to DockerHub when specific Git tags are pushed to the repository. The workflow is designed to adhere to semantic versioning principles, focusing on versioning formats like Major.Minor.Patch, along with tags for {{major}}, {{major}}.{{minor}}, and latest.
+## Project 5: Milestone Dates & EC
 
-Semantic Versioning Format
-The semantic versioning format used in this project follows the pattern of Major.Minor.Patch, where:
+### Project Overview
 
-Major: Represents significant changes or breaking changes.
-Minor: Represents new features or enhancements.
-Patch: Represents bug fixes or patches.
+This project involves setting up a GitHub Actions workflow to automate the build and push of Docker images to DockerHub when specific Git tags are pushed to the repository. The workflow is designed to adhere to semantic versioning principles, focusing on versioning formats like `Major.Minor.Patch`, along with tags for `{{major}}`, `{{major}}.{{minor}}`, and `latest`.
+
+### Semantic Versioning Format
+
+The semantic versioning format used in this project follows the pattern of `Major.Minor.Patch`, where:
+- `Major`: Represents significant changes or breaking changes.
+- `Minor`: Represents new features or enhancements.
+- `Patch`: Represents bug fixes or patches.
+
 The workflow is configured to generate tags based on these version patterns when specific events occur.
 
-How to Generate a Tag in Git/GitHub
+### How to Generate a Tag in Git/GitHub
+
 To generate a tag in Git/GitHub for triggering the workflow, use the following commands:
 
+\```bash
 git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
+\```
 
-Deleting a Tag
-To delete a Git tag locally and on the remote repository, follow these steps
-Delete a local tag:
+#### Deleting a Tag
+
+To delete a Git tag locally and on the remote repository, follow these steps:
+
+\```bash
+# Delete a local tag
 git tag -d <tag_name>
-git push --delete origin <tag_name>
 
-##
+# Delete the tag on the remote repository
+git push --delete origin <tag_name>
+\```
+
+Replace `<tag_name>` with the name of the tag you want to delete.
+
+### Updated `main.yml` File
+
+\```yaml
 name: Build and Push Docker Image
 
 on:
@@ -57,32 +73,33 @@ jobs:
         run: |
           docker push sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}
           docker push sgyamf/sgyamf:latest
-Explanation of Updated main.yml
-Workflow Trigger (on: push: tags):
+\```
 
-This workflow triggers only on push events with tags (refs/tags/v* pattern), which typically represent Git tag versions.
-Jobs (build-and-push):
+### Explanation of Updated `main.yml`
 
-Contains a single job named build-and-push that runs on an ubuntu-latest runner.
-Steps:
+- **Workflow Trigger** (`on: push: tags`):
+  - This workflow triggers only on `push` events with tags (`refs/tags/v*` pattern), which typically represent Git tag versions.
 
-Checkout Repository:
+- **Jobs** (`build-and-push`):
+  - Contains a single job named `build-and-push` that runs on an `ubuntu-latest` runner.
 
-Uses actions/checkout@v2 to checkout the repository code onto the runner.
-Login to DockerHub:
+- **Steps**:
+  1. **Checkout Repository**:
+     - Uses `actions/checkout@v2` to checkout the repository code onto the runner.
 
-Uses docker login command with Docker Hub credentials stored in GitHub secrets.
-Extract Tag Version:
+  2. **Login to DockerHub**:
+     - Uses `docker login` command with Docker Hub credentials stored in GitHub secrets.
 
-Extracts the tag version from the github.ref variable (e.g., refs/tags/v1.0.0 becomes 1.0.0).
-Sets the extracted tag version as an output (tag) for later use.
-Build Docker Images:
+  3. **Extract Tag Version**:
+     - Extracts the tag version from the `github.ref` variable (e.g., `refs/tags/v1.0.0` becomes `1.0.0`).
+     - Sets the extracted tag version as an output (`tag`) for later use.
 
-Builds two Docker images:
-One tagged with the extracted tag version (sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}).
-One tagged as latest (sgyamf/sgyamf:latest).
-Push Docker Images to DockerHub:
+  4. **Build Docker Images**:
+     - Builds two Docker images:
+       - One tagged with the extracted tag version (`sgyamf/sgyamf:${{ steps.extract_tag.outputs.tag }}`).
+       - One tagged as `latest` (`sgyamf/sgyamf:latest`).
 
-Pushes both Docker images to your DockerHub repository:
-The image tagged with the extracted tag version.
-The image tagged as latest
+  5. **Push Docker Images to DockerHub**:
+     - Pushes both Docker images to your DockerHub repository:
+       - The image tagged with the extracted tag version.
+       - The image tagged as `latest`.
