@@ -22,18 +22,3 @@ git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin --tags
 
 
----
-## Behavior of GitHub Workflow
-
-The GitHub Actions workflow (`main.yml`) is configured to execute when the following events occur:
-
-- Push to the `main` branch.
-- Push of tags that match the pattern `v*.*`.
-
-The workflow performs the following actions:
-
-1. Checks out the repository code.
-2. Gathers metadata about the image using `docker/metadata-action`.
-3. Logs in to DockerHub using Docker credentials.
-4. Builds and pushes the Docker image based on the specified tags.
----
