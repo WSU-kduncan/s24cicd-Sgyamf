@@ -1,24 +1,30 @@
-
 name: Build and Push Docker Image
 
 on:
   push:
     branches:
       - main
+    tags:
+      - 'v*.*'
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build Docker image
-        run: docker push sgyamf/s24cicd-Sgyamf:latest .
+        run: |
+          docker build -t sgyamf/s24cicd-Sgyamf:latest .
+          docker build -t sgyamf/s24cicd-Sgyamf:${{ github.ref }} .
 
       - name: Push Docker image to DockerHub
-        run: docker push sgyamf/s24cicd-Sgyamf:latest
-
+        run: |
+          docker push sgyamf/s24cicd-Sgyamf:latest
+          docker push sgyamf/s24cicd-Sgyamf:${{ github.ref }}
