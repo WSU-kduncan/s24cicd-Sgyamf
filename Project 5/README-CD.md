@@ -125,4 +125,47 @@ Once the images are pushed, we can verify their presence on Docker Hub by naviga
 
 ![image](https://github.com/WSU-kduncan/s24cicd-Sgyamf/assets/143733797/dcc24287-cb1d-4126-ac85-3fa5687c5879)
 
+## Installation Guide and Documentation
+
+### How to Install Docker on Your Instance
+
+To install Docker on your instance, follow these steps:
+
+1. **Update Package Index:**
+
+   ```bash
+   sudo apt update
+
+## Install Required Packages
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+
+## Add Docker's GPG Key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+## Set Up the Docker Repository:
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+## Install Docker Engine:
+sudo apt update
+sudo apt install docker-ce
+## Verify Docker Installation:
+sudo systemctl status docker
+docker --version
+
+## Container Restart Script
+Justification & Description
+The container restart script (update_container.sh) is designed to pull the latest Docker image from DockerHub and restart a specified container.
+
+What It Does
+Pull Latest Image:
+docker pull sgyamf/webserver:latest
+## Restart Docker Container:
+docker restart mynginx
+
+##Location on Instance
+The script should reside in /home/sgyamf/deployment/update_container.sh.
+
+Setting Up a Webhook on the Instance
+Installation of adnanh's Webhook
+## Clone Webhook Repository:
+git clone https://github.com/adnanh/webhook.git
 
