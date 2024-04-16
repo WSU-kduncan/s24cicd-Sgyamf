@@ -181,7 +181,7 @@ Start the webhook with your configured hooks file:
 Description
 The webhook task definition file (hooks.json) defines specific actions to be executed when triggered by events.
 
-#Location on Instance
+# Location on Instance
 The hooks.json file should be located in /home/sgyamf/deployment.
 
 # Configuring GitHub or DockerHub to Message the Listener
