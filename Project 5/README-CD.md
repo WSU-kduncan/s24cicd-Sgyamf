@@ -170,3 +170,44 @@ Installation of adnanh's Webhook
 ## Clone Webhook Repository:
 git clone https://github.com/adnanh/webhook.git
 
+#Build Webhook:
+cd webhook
+go build
+
+# Starting the Webhook
+Start the webhook with your configured hooks file:
+./webhook -hooks hooks.json -port 9000 -verbose
+Handling Webhook Task Definition File
+Description
+The webhook task definition file (hooks.json) defines specific actions to be executed when triggered by events.
+
+Location on Instance
+The hooks.json file should be located in /home/sgyamf/deployment.
+
+Configuring GitHub or DockerHub to Message the Listener
+GitHub Configuration
+Go to your GitHub repository settings.
+Navigate to Webhooks and add a new webhook.
+Set the payload URL to your instance's webhook endpoint.
+Choose the events you want to trigger the webhook.
+DockerHub Configuration
+Go to DockerHub repository settings.
+Configure automated builds with webhook notifications.
+Provide the payload URL and choose the events to trigger the webhook.
+CI/CD Workflow Proof
+To demonstrate the CI/CD workflow:
+
+Starting with a Commit and Tag:
+
+Make a change to your repository.
+Commit the change and tag the commit.
+GitHub Workflow Success:
+
+Push the tagged commit to GitHub.
+Check GitHub Actions for the workflow status and success message.
+DockerHub Pushed Images:
+
+Ensure DockerHub receives the pushed images triggered by the workflow.
+Updated Container on Instance:
+
+Verify that the Docker container on your instance is updated with the latest image.
