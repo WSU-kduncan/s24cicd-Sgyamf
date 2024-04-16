@@ -204,13 +204,14 @@ To demonstrate the CI/CD workflow:
 Make a change to your repository.
 Commit the change and tag the commit.
 
-GitHub Workflow Success:
+# GitHub Workflow Success:
 Push the tagged commit to GitHub.
 Check GitHub Actions for the workflow status and success message.
-**DockerHub Pushed Images:**
 
+# DockerHub Pushed Images
 Ensure DockerHub receives the pushed images triggered by the workflow.
-Updated Container on Instance:
+
+# Updated Container on Instance:
 
 Verify that the Docker container on your instance is updated with the latest image.
 
