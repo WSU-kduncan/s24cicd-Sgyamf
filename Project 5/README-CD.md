@@ -152,7 +152,7 @@ sudo systemctl status docker
 docker --version
 
 ## Container Restart Script
-# Justification & Description
+ Justification & Description
 
 The container restart script (update_container.sh) is designed to pull the latest Docker image from DockerHub and restart a specified container.
 
@@ -162,7 +162,7 @@ docker pull sgyamf/webserver:latest
 ## Restart Docker Container:
 docker restart mynginx
 
-##Location on Instance
+## Location on Instance
 The script should reside in /home/sgyamf/deployment/update_container.sh.
 
 Setting Up a Webhook on the Instance
