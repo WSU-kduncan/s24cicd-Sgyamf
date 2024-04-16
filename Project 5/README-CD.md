@@ -208,6 +208,7 @@ GitHub Workflow Success:
 Push the tagged commit to GitHub.
 Check GitHub Actions for the workflow status and success message.
 **DockerHub Pushed Images:**
+
 Ensure DockerHub receives the pushed images triggered by the workflow.
 Updated Container on Instance:
 
