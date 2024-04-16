@@ -199,7 +199,7 @@ Provide the payload URL and choose the events to trigger the webhook.
 ## CI/CD Workflow Proof
 To demonstrate the CI/CD workflow:
 
-**Starting with a Commit and Tag:**
+# Starting with a Commit and Tag:
 
 Make a change to your repository.
 Commit the change and tag the commit.
