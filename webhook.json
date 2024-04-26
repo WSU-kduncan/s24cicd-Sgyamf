@@ -1,0 +1,16 @@
+[
+  {
+    "id": "trigger-container-restart",
+    "execute-command": "/path/to/your/deployment/update_container.sh",
+    "command-working-directory": "/path/to/your/deployment",
+    "response-message": "Executing container restart script...",
+    "include-response": true,
+    "trigger-rule": {
+      "match": {
+        "type": "payload",
+        "path": "$.message",
+        "value": "restart_container"
+      }
+    }
+  }
+]
