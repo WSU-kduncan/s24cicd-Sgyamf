@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy your HTML files to the Apache document root directory
-COPY html/ /var/www/html/
+COPY website /var/www/html/
 
 # Expose port 80
 EXPOSE 80
